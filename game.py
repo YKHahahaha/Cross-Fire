@@ -90,6 +90,17 @@ class Bomb(pygame.sprite.Sprite):
         self.rect.move_ip(-5,0)
         if self.rect.right<0:
             self.kill()
+            
+class Bomb_two(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Bomb_two,self).__init__()
+        self.image=pygame.image.load('bomb-1.gif').convert_alpha()
+        self.image.set_colorkey((255,255,255),RLEACCEL)
+        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+    def update(self):
+        self.rect.move_ip(-5,0)
+        if self.rect.right<0:
+            self.kill()
 
 class Dragon(pygame.sprite.Sprite):
     def __init__(self):
@@ -98,7 +109,7 @@ class Dragon(pygame.sprite.Sprite):
         self.image.set_colorkey((255,255,255),RLEACCEL)
         self.rect=self.image.get_rect(center=(0,random.randint(0,600)))
     def update(self):
-        self.rect.move_ip(8,0)
+        self.rect.move_ip(2,0)
         if self.rect.left>800:
             self.kill()
 
@@ -115,7 +126,7 @@ class Flame(pygame.sprite.Sprite):
 
 
 
-life=3
+
 
 # initialize pygame
 pygame.init()
@@ -145,7 +156,9 @@ ADDGOLD=pygame.USEREVENT+3
 pygame.time.set_timer(ADDGOLD,500)
 ADDBOBM=pygame.USEREVENT+4
 pygame.time.set_timer(ADDBOBM,1500)
-ADDFLAME=pygame.USEREVENT+5
+ADDBOBMTWO=pygame.USEREVENT+5
+pygame.time.set_timer(ADDBOBMTWO,1500)
+ADDFLAME=pygame.USEREVENT+6
 pygame.time.set_timer(ADDFLAME,500)
 
 # create our 'player', right now he's just a rectangle
@@ -160,6 +173,7 @@ enemies = pygame.sprite.Group()
 clouds = pygame.sprite.Group()
 golds=pygame.sprite.Group()
 bombs=pygame.sprite.Group()
+bomb_twos=pygame.sprite.Group()
 dragons=pygame.sprite.Group()
 flames=pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
@@ -194,6 +208,10 @@ while running:
                 new_bomb=Bomb()
                 all_sprites.add(new_bomb)
                 bombs.add(new_bomb)
+            elif event.type==ADDBOBMTWO:
+                new_bomb_two=Bomb_two()
+                all_sprites.add(new_bomb_two)
+                bomb_twos.add(new_bomb_two)
             elif event.type==ADDFLAME:
                 new_flames=Flame()
                 all_sprites.add(new_flames)
@@ -205,6 +223,7 @@ while running:
         clouds.update()
         golds.update()
         bombs.update()
+        bomb_twos.update()
         dragons.update()
         flames.update()
         for entity in all_sprites:
@@ -223,6 +242,8 @@ while running:
             all_sprites.remove(golds)
         if pygame.sprite.spritecollideany(player,bombs):
             all_sprites.remove(bombs)
+        if pygame.sprite.spritecollideany(player,bomb_twos):
+            all_sprites.remove(bomb_twos)
         if pygame.sprite.spritecollideany(player,flames):
             font = pygame.font.Font(None,48)
             text = font.render("GAME OVER!!!", True, (255, 0, 0))
@@ -232,6 +253,8 @@ while running:
             screen.blit(text, text_rect)
             player.kill()
             pygame.time.delay(300)
+        pygame.sprite.groupcollide(dragons,enemies,False,True)
+        pygame.sprite.groupcollide(dragons,flames,False,True)
         pygame.display.flip()
 
    
