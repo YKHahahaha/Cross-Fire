@@ -1,7 +1,7 @@
 # Cross-Fire
-"Cross Fire" is a game write in pygame
-##Game manipulation  
-#How to play?  
+"Cross Fire" is a game write in pygame  
+## Game manipulation  
+#### How to play?  
 the plane:  
 ●↑：turn up  
 ●↓: turn down  
