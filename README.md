@@ -10,6 +10,9 @@ the plane:
 the dragon:  
 Press the keyboard B  
 If a dragon hits a bullet，Dragon will die.If dragons encounter enemies，The enemy will die.  
-## running results
+## running results  
+  
+    
+
 
 
