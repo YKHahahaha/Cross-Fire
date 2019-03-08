@@ -2,6 +2,7 @@
 "Cross Fire" is a game write in pygame  
 ## Game manipulation  
 #### How to play?  
+```Python
 the plane:  
 ●↑：turn up  
 ●↓: turn down  
@@ -10,6 +11,7 @@ the plane:
 the dragon:  
 Press the keyboard B  
 If a dragon hits a bullet，Dragon will die.If dragons encounter enemies，The enemy will die.  
+```
 ## install import  
 ```Python
 pip install pygame
