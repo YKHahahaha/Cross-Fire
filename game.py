@@ -265,8 +265,8 @@ while running:
         if pygame.sprite.spritecollideany(player,bomb_twos):
             all_sprites.remove(bomb_twos)
         if pygame.sprite.spritecollideany(player,flames):
-            sound=pygame.mixer.Sound("booms.mp3")
-            sound.play()
+            #sound=pygame.mixer.Sound("booms.mp3")
+            #sound.play()
             font = pygame.font.Font(None,48)
             text = font.render("GAME OVER!!!", True, (255, 0, 0))
             text_rect = text.get_rect()
