@@ -16,7 +16,7 @@ If a dragon hits a bullet，Dragon will die.If dragons encounter enemies，The e
 ```Python
 pip install pygame
 ```
-  Note that the code should be saved in the same path as the picture and music, or pygame will report an error  
+##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error  
   
     
 
