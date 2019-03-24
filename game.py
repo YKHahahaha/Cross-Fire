@@ -194,6 +194,8 @@ flames=pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
+time=0
+
 running=True
 start=True
 while running:
@@ -204,7 +206,10 @@ while running:
                     the_dragon=Dragon()
                     all_sprites.add(the_dragon)
                     dragons.add(the_dragon)
-                if event.type == QUIT:
+                if event.key==pygame.K_ESCAPE:
+                    sys.exit()
+                    pygame.quit()
+                if event.type == pygame.QUIT:
                     running = False
                     sys.exit()
             elif event.type == ADDENEMY:
@@ -246,18 +251,30 @@ while running:
         bullets.update()
         dragons.update()
         flames.update()
+        time=time+1
+        if time>2000 and time<4000:
+            endscore="D"
+        if time>4000 and time<4500:
+            endscore="C"
+        if time>4500 and time<6000:
+            endscore="B"
+        if time>6000 and time<10000:
+            endscore="A"
+        if time>10000:
+            endscore="SSS"
+        
         for entity in all_sprites:
             screen.blit(entity.image, entity.rect)
 
         if pygame.sprite.spritecollideany(player, enemies):
             player.kill()
             font = pygame.font.Font(None,48)
-            text = font.render("GAME OVER!!!", True, (255, 0, 0))
+            text = font.render("GAME OVER!!!You score is:{}".format(endscore), True, (255, 0, 0))
             text_rect = text.get_rect()
             text_rect.centerx = screen.get_rect().centerx
             text_rect.centery = screen.get_rect().centery + 24
             screen.blit(text, text_rect)
-            pygame.time.delay(300)
+            
         if pygame.sprite.spritecollideany(player, golds):
             all_sprites.remove(golds)
         if pygame.sprite.spritecollideany(player,bombs):
@@ -267,8 +284,9 @@ while running:
         if pygame.sprite.spritecollideany(player,flames):
             #sound=pygame.mixer.Sound("booms.mp3")
             #sound.play()
+            end=True
             font = pygame.font.Font(None,48)
-            text = font.render("GAME OVER!!!", True, (255, 0, 0))
+            text = font.render("GAME OVER!!!Your score is:{}".format(endscore), True, (255, 0, 0))
             text_rect = text.get_rect()
             text_rect.centerx = screen.get_rect().centerx
             text_rect.centery = screen.get_rect().centery + 24
@@ -279,5 +297,3 @@ while running:
         pygame.sprite.groupcollide(dragons,flames,False,True)
         pygame.sprite.groupcollide(dragons,bullets,True,False)
         pygame.display.flip()
-
-   
