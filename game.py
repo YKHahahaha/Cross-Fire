@@ -274,6 +274,7 @@ while running:
             text_rect.centerx = screen.get_rect().centerx
             text_rect.centery = screen.get_rect().centery + 24
             screen.blit(text, text_rect)
+            pygame.time.delay(300)
             
         if pygame.sprite.spritecollideany(player, golds):
             all_sprites.remove(golds)
