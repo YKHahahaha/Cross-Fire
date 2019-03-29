@@ -19,7 +19,7 @@ pip install pygame
 ```
 ##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error  
 ## Example  
-step1:code saved in the same path as the picture and music.  
+step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run01.png)
 Next you can play the game!!!  
