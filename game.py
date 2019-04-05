@@ -199,7 +199,7 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
 time=0
-life
+
 running=True
 start=True
 while running:
