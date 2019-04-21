@@ -2,6 +2,8 @@
 #Author_Email: m18824909883@163.com
 #Edition: v1.0
 #Last update: 2019.4.5
+
+#import the pygame!
 import pygame
 
 # import random for random numbers!
@@ -278,7 +280,8 @@ while running:
             text_rect.centerx = screen.get_rect().centerx
             text_rect.centery = screen.get_rect().centery + 24
             screen.blit(text, text_rect)
-            sys.exit()
+            pygame.time.delay(50)
+            
             
         if pygame.sprite.spritecollideany(player, golds):
             all_sprites.remove(golds)
@@ -297,7 +300,9 @@ while running:
             text_rect.centery = screen.get_rect().centery + 24
             screen.blit(text, text_rect)
             player.kill()
-            sys.exit()
+            pygame.time.delay(50)
+            
+            
         pygame.sprite.groupcollide(dragons,enemies,False,True)
         pygame.sprite.groupcollide(dragons,flames,False,True)
         pygame.sprite.groupcollide(dragons,bullets,True,False)
