@@ -17,6 +17,7 @@ Press the keyboard Esc can exit the game
 ```Python
 pip install pygame
 ```
+[what is pygame?](https://www.pygame.org)  
 ##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error  
 ## Example  
 step1:code is saved in the same path as the picture and music.  
@@ -26,6 +27,9 @@ Next you can play the game!!!
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/rum02.png)
 Press the keyboard Esc,exit the game.  
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run03.png)
+
+## About
+
 
 
   
