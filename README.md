@@ -29,9 +29,10 @@ Press the keyboard Esc,exit the game.
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run03.png)
 
 ## About
-If you have any questions, you can contact my[facebook](https://www.facebook.com/xiao.stepfencurry.3)
-My email:[google](stepfencurryxiao@gmail.com)  
-or[网易](m18824909883@163.com)
+If you have any questions, you can contact my [facebook](https://www.facebook.com/xiao.stepfencurry.3)  
+My email:stepfencurryxiao@gmail.com  
+Welcome to leave a message!!!
+  
 
   
     
