@@ -1,5 +1,5 @@
 #Author: StephenCurry
-#Author_Email: m18824909883@163.com
+#Author_Email: stepfencurryxiao@gmail
 #Edition: v1.0
 #Last update: 2019.4.5
 
