@@ -1,5 +1,6 @@
 # Cross-Fire
 "Cross Fire" is a game write in pygame  
+[!image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
 ## Game manipulation  
 #### How to play?  
 ```Python
@@ -28,7 +29,7 @@ Next you can play the game!!!
 Press the keyboard Esc,exit the game.  
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run03.png)
 
-## About
+## About anuthor
 If you have any questions, you can contact my [facebook](https://www.facebook.com/xiao.stepfencurry.3)  
 My email:stepfencurryxiao@gmail.com  
 Welcome to leave a message!!!
