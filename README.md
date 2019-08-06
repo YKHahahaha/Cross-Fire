@@ -1,6 +1,6 @@
 # Cross-Fire
 "Cross Fire" is a game write in pygame  
-[!image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
+![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
 ## Game manipulation  
 #### How to play?  
 ```Python
