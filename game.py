@@ -1,7 +1,7 @@
 #Author: StephenCurry
 #Author_Email: stepfencurryxiao@gmail
-#Edition: v1.0
-#Last update: 2019.4.5
+#Edition: v1.1
+#Last update: 2019.8.9
 
 #import the pygame!
 import pygame
@@ -145,6 +145,8 @@ class Flame(pygame.sprite.Sprite):
 
 
 
+time=0
+endsocre=""
 
 # initialize pygame
 pygame.init()
@@ -199,8 +201,6 @@ dragons=pygame.sprite.Group()
 flames=pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
-
-time=0
 
 running=True
 start=True
