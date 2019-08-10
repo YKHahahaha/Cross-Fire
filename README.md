@@ -34,7 +34,7 @@ If you have any questions, you can contact my [facebook](https://www.facebook.co
 My email:stepfencurryxiao@gmail.com  
 Welcome to leave a message!!!
   
-## If ypu like this,pleas  
+## If you like this 
 ●star  
 ●fork
     
