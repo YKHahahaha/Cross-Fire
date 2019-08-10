@@ -1,6 +1,6 @@
 #Author: StephenCurry
 #Author_Email: stepfencurryxiao@gmail
-#Edition: v1.1
+#Edition: v1.2
 #Last update: 2019.8.9
 
 #import the pygame!
@@ -142,11 +142,44 @@ class Flame(pygame.sprite.Sprite):
             self.kill()
 
 
+def exit_game():
+    time.sleep(6)
+    sys.exit()
 
+  
 
+def IsDie():
+    if pygame.sprite.spritecollideany(player, enemies):
+        player.kill()
+        font = pygame.font.Font(None,48)
+        text = font.render("GAME OVER!!!You score is:{}".format(endscore), True, (255, 0, 0))
+        text_rect = text.get_rect()
+        text_rect.centerx = screen.get_rect().centerx
+        text_rect.centery = screen.get_rect().centery + 24
+        screen.blit(text, text_rect)
+        pygame.time.delay(50)
+        exit_game()
+            
+            
+    if pygame.sprite.spritecollideany(player, golds):
+        all_sprites.remove(golds)
+    if pygame.sprite.spritecollideany(player,bombs):
+        all_sprites.remove(bombs)
+    if pygame.sprite.spritecollideany(player,bomb_twos):
+        all_sprites.remove(bomb_twos)
+    if pygame.sprite.spritecollideany(player,flames):
+        player.kill()
+        #sound=pygame.mixer.Sound("booms.mp3")
+        #sound.play()
+        font = pygame.font.Font(None,48)
+        text = font.render("GAME OVER!!!Your score is:{}".format(endscore), True, (255, 0, 0))
+        text_rect = text.get_rect()
+        text_rect.centerx = screen.get_rect().centerx
+        text_rect.centery = screen.get_rect().centery + 24
+        screen.blit(text, text_rect)
+        pygame.time.delay(50)
+        exit_game()
 
-time=0
-endsocre=""
 
 # initialize pygame
 pygame.init()
@@ -201,6 +234,9 @@ dragons=pygame.sprite.Group()
 flames=pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
+
+Time=0
+endscore=""
 
 running=True
 start=True
@@ -257,52 +293,23 @@ while running:
         bullets.update()
         dragons.update()
         flames.update()
-        time=time+1
-        if time>2000 and time<4000:
+
+        Time=Time+1
+        if Time>2000 and Time<4000:
             endscore="D"
-        if time>4000 and time<4500:
+        if Time>4000 and Time<4500:
             endscore="C"
-        if time>4500 and time<6000:
+        if Time>4500 and Time<6000:
             endscore="B"
-        if time>6000 and time<10000:
+        if Time>6000 and Time<10000:
             endscore="A"
-        if time>10000:
+        if Time>10000:
             endscore="SSS"
-        
+            
         for entity in all_sprites:
             screen.blit(entity.image, entity.rect)
-
-        if pygame.sprite.spritecollideany(player, enemies):
-            player.kill()
-            font = pygame.font.Font(None,48)
-            text = font.render("GAME OVER!!!You score is:{}".format(endscore), True, (255, 0, 0))
-            text_rect = text.get_rect()
-            text_rect.centerx = screen.get_rect().centerx
-            text_rect.centery = screen.get_rect().centery + 24
-            screen.blit(text, text_rect)
-            pygame.time.delay(50)
-            
-            
-        if pygame.sprite.spritecollideany(player, golds):
-            all_sprites.remove(golds)
-        if pygame.sprite.spritecollideany(player,bombs):
-            all_sprites.remove(bombs)
-        if pygame.sprite.spritecollideany(player,bomb_twos):
-            all_sprites.remove(bomb_twos)
-        if pygame.sprite.spritecollideany(player,flames):
-            #sound=pygame.mixer.Sound("booms.mp3")
-            #sound.play()
-            end=True
-            font = pygame.font.Font(None,48)
-            text = font.render("GAME OVER!!!Your score is:{}".format(endscore), True, (255, 0, 0))
-            text_rect = text.get_rect()
-            text_rect.centerx = screen.get_rect().centerx
-            text_rect.centery = screen.get_rect().centery + 24
-            screen.blit(text, text_rect)
-            player.kill()
-            pygame.time.delay(50)
-            
-            
+        IsDie()
+                           
         pygame.sprite.groupcollide(dragons,enemies,False,True)
         pygame.sprite.groupcollide(dragons,flames,False,True)
         pygame.sprite.groupcollide(dragons,bullets,True,False)
