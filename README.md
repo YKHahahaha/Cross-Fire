@@ -19,7 +19,21 @@ Press the keyboard Esc can exit the game
 pip install pygame
 ```
 [what is pygame?](https://www.pygame.org)  
-##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error  
+##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error
+```
+Cross-Fire
+ ---bomb-1.gif
+ ---bomb-2.gif
+ ---bullet.png
+ ---cloud.png
+ ---dragon.png
+ ---flame.png
+ ---gold.png
+ ---missile.png
+ ---plane.png
+ ---bgm2.mp3
+ ---game.py
+```
 ## Example  
 step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
