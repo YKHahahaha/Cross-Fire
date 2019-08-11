@@ -34,6 +34,11 @@ Cross-Fire
  ---bgm2.mp3
  ---game.py
 ```
+## How to run
+```python
+python "game.py"  
+```
+or you can open the [game.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/game.bat)
 ## Example  
 step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
