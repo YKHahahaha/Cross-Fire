@@ -13,6 +13,16 @@ the dragon:
 Press the keyboard B  
 If a dragon hits a bullet，Dragon will die.If dragons encounter enemies，The enemy will die. 
 Press the keyboard Esc can exit the game  
+## download picture
+```java
+javac download.java  
+javac main.java  
+java main  
+```
+If you fail to download using java code,you can
+```
+
+```
 ```
 ## install import  
 ```Python
