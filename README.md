@@ -21,8 +21,8 @@ javac main.java
 java main  
 ```
 If you fail to download using java code,you can
-```
-
+```git
+git@github.com:stepfencurryxiao/Cross-Fire.git
 ```
 
 ## install import  
