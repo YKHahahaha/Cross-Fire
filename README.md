@@ -16,7 +16,7 @@ Press the keyboard Esc can exit the game
 ```
 ## download picture
 ```java
-javac download.java  
+javac Download.java  
 javac main.java  
 java main  
 ```
@@ -67,7 +67,3 @@ Welcome to leave a message!!!
 ## If you like this 
 ●star  
 ●fork
-    
-
-
-
