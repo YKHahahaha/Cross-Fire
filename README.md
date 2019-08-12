@@ -38,7 +38,7 @@ Cross-Fire
 ```python
 python "game.py"  
 ```
-or you can open the [game.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/game.bat)
+or you can open the [game.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/game.bat) or [game.sh](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/game.sh)
 ## Example  
 step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
