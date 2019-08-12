@@ -24,7 +24,7 @@ If you fail to download using java code,you can
 ```
 
 ```
-```
+
 ## install import  
 ```Python
 pip install pygame
