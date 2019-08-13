@@ -20,6 +20,8 @@ javac Download.java
 javac main.java  
 java main  
 ```
+[Download.java](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/download_picture/com/program/main/java/Download.java)  
+[main.java](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/download_picture/com/program/main/java/main.java)  
 If you fail to download using java code,you can
 ```git
 git@github.com:stepfencurryxiao/Cross-Fire.git
