@@ -57,7 +57,7 @@ step1:code is saved in the same path as the picture and music.
 step2:Run the code  
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run01.png)
 Next you can play the game!!!  
-![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/rum02.png)
+![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run02.png)
 Press the keyboard Esc,exit the game.  
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run03.png)
 
