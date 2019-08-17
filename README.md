@@ -32,6 +32,10 @@ git@github.com:stepfencurryxiao/Cross-Fire.git
 ```Python
 pip install pygame
 ```
+```
+python 3.x
+pygame 1.9.4
+```
 [what is pygame?](https://www.pygame.org)  
 ##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error
 ```
