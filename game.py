@@ -240,11 +240,11 @@ def IsDie():
 pygame.init()
 
 #music:
-#pygame.mixer.init()
-#pygame.mixer.music.load("bgm2.mp3")
-#pygame.mixer.music.set_volume(0.2)
-#pygame.mixer.music.play()
-#pygame.time.delay(1000)
+pygame.mixer.init()
+pygame.mixer.music.load("bgm2.mp3")
+pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play()
+pygame.time.delay(1000)
 
 
 # create the screen object
