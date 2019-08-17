@@ -1,6 +1,6 @@
 #Author: StephenCurry
 #Author_Email: stepfencurryxiao@gmail
-#Edition: v2.0
+#Edition: v2.1
 #Last update: 2019.8.16
 
 #import the pygame!
@@ -81,9 +81,9 @@ class Cloud(pygame.sprite.Sprite):
 class Gold(pygame.sprite.Sprite):
     def __init__(self):
         super(Gold,self).__init__()
-        self.image=pygame.image.load("gold.png").convert_alpha()
+        self.image = pygame.image.load("gold.png").convert_alpha()
         self.image.set_colorkey((255, 255, 255),RLEACCEL)
-        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
 
     def update(self):
         self.rect.move_ip(-5,0)
@@ -93,9 +93,9 @@ class Gold(pygame.sprite.Sprite):
 class Bomb(pygame.sprite.Sprite):
     def __init__(self):
         super(Bomb,self).__init__()
-        self.image=pygame.image.load('bomb-2.gif').convert_alpha()
+        self.image = pygame.image.load('bomb-2.gif').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-3,0)
         if self.rect.right<0:
@@ -104,9 +104,9 @@ class Bomb(pygame.sprite.Sprite):
 class Bomb_two(pygame.sprite.Sprite):
     def __init__(self):
         super(Bomb_two,self).__init__()
-        self.image=pygame.image.load('bomb-1.gif').convert_alpha()
+        self.image = pygame.image.load('bomb-1.gif').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-3,0)
         if self.rect.right<0:
@@ -115,9 +115,9 @@ class Bomb_two(pygame.sprite.Sprite):
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         super(Bullet,self).__init__()
-        self.image=pygame.image.load('bullet.png').convert_alpha()
+        self.image = pygame.image.load('bullet.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-5,0)
         if self.rect.right<0:
@@ -127,9 +127,9 @@ class Bullet(pygame.sprite.Sprite):
 class Dragon(pygame.sprite.Sprite):
     def __init__(self):
         super(Dragon,self).__init__()
-        self.image=pygame.image.load('dragon.png').convert_alpha()
+        self.image = pygame.image.load('dragon.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect=self.image.get_rect(center=(0,random.randint(0,600)))
+        self.rect = self.image.get_rect(center=(0,random.randint(0,600)))
     def update(self):
         self.rect.move_ip(2,0)
         if self.rect.left>800:
@@ -138,9 +138,9 @@ class Dragon(pygame.sprite.Sprite):
 class Flame(pygame.sprite.Sprite):
     def __init__(self):
         super(Flame,self).__init__()
-        self.image=pygame.image.load('flame.png').convert_alpha()
+        self.image = pygame.image.load('flame.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-5,0)
         if self.rect.right<0:
@@ -152,8 +152,8 @@ def exit_game():
 
 
 _Life = 10
-Time=0
-endscore=""
+Time = 0
+endscore = ""
 #everything's time
 global enemy_millsecond 
 global cloud_millsecond 
@@ -190,24 +190,24 @@ def IsDie():
         Time=Time+1
         if Time>0 and Time<2000:
             endscore="E"
-        elif Time>2000 and Time<4000:
-            endscore="D"
+        elif Time > 2000 and Time < 4000:
+            endscore = "D"
             enemy_millsecond = 1000
             cloud_millsecond = 2000
             gold_millsecond = 2000
             bobm_millsecond = 5700
             bomb_two_millsecond = 5700
             bubblet_millsecond = 1000
-            flame_millsecond =1000
+            flame_millsecond = 1000
 
-        elif Time>4000 and Time<4500:
-            endscore="C"
-        elif Time>4500 and Time<6000:
-            endscore="B"
-        elif Time>6000 and Time<10000:
-            endscore="A"
-        elif Time>10000:
-            endscore="SSS"
+        elif Time > 4000 and Time < 4500:
+            endscore = "C"
+        elif Time > 4500 and Time < 6000:
+            endscore = "B"
+        elif Time  >6000 and Time < 10000:
+            endscore = "A"
+        elif Time > 10000:
+            endscore = "SSS"
             enemy_millsecond = 100
             cloud_millsecond = 2000
             gold_millsecond = 5000
@@ -240,10 +240,14 @@ def IsDie():
 pygame.init()
 
 #music:
+#initialize the music
 pygame.mixer.init()
+#This is the bgm
 pygame.mixer.music.load("bgm2.mp3")
 pygame.mixer.music.set_volume(0.2)
+#play the music
 pygame.mixer.music.play()
+#timesout
 pygame.time.delay(1000)
 
 
@@ -269,15 +273,15 @@ ADDENEMY = pygame.USEREVENT + 1
 pygame.time.set_timer(ADDENEMY, enemy_millsecond)
 ADDCLOUD = pygame.USEREVENT + 2
 pygame.time.set_timer(ADDCLOUD, cloud_millsecond)
-ADDGOLD=pygame.USEREVENT+3
+ADDGOLD = pygame.USEREVENT+3
 pygame.time.set_timer(ADDGOLD,gold_millsecond)
-ADDBOBM=pygame.USEREVENT+4
+ADDBOBM = pygame.USEREVENT+4
 pygame.time.set_timer(ADDBOBM,bobm_millsecond)
-ADDBOBMTWO=pygame.USEREVENT+5
+ADDBOBMTWO = pygame.USEREVENT+5
 pygame.time.set_timer(ADDBOBMTWO,bomb_two_millsecond)
-ADDBULLET=pygame.USEREVENT+6
+ADDBULLET = pygame.USEREVENT+6
 pygame.time.set_timer(ADDBULLET,bomb_two_millsecond)
-ADDFLAME=pygame.USEREVENT+7
+ADDFLAME = pygame.USEREVENT+7
 pygame.time.set_timer(ADDFLAME,flame_millsecond)
 
 # create our 'player', right now he's just a rectangle
@@ -290,28 +294,28 @@ background.fill((135, 206, 250))
 
 enemies = pygame.sprite.Group()
 clouds = pygame.sprite.Group()
-golds=pygame.sprite.Group()
-bombs=pygame.sprite.Group()
-bomb_twos=pygame.sprite.Group()
-bullets=pygame.sprite.Group()
-dragons=pygame.sprite.Group()
-flames=pygame.sprite.Group()
+golds = pygame.sprite.Group()
+bombs = pygame.sprite.Group()
+bomb_twos = pygame.sprite.Group()
+bullets = pygame.sprite.Group()
+dragons = pygame.sprite.Group()
+flames = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
 
-running=True
-start=True
+running = True
+start = True
 try:
     while running:
-        if start==True:
+        if start == True:
             for event in pygame.event.get():
                 if event.type == KEYDOWN:
-                    if event.key==K_b:
-                        the_dragon=Dragon()
+                    if event.key == K_b:
+                        the_dragon = Dragon()
                         all_sprites.add(the_dragon)
                         dragons.add(the_dragon)
-                    if event.key==pygame.K_ESCAPE:
+                    if event.key == pygame.K_ESCAPE:
                         sys.exit()
                         pygame.quit()
                     if event.type == pygame.QUIT:
@@ -325,29 +329,33 @@ try:
                     new_cloud = Cloud()
                     all_sprites.add(new_cloud)
                     clouds.add(new_cloud)
-                elif event.type==ADDGOLD:
-                    new_gold=Gold()
+                elif event.type == ADDGOLD:
+                    new_gold = Gold()
                     all_sprites.add(new_gold)
                     golds.add(new_gold)
-                elif event.type==ADDBOBM:
-                    new_bomb=Bomb()
+                elif event.type == ADDBOBM:
+                    new_bomb = Bomb()
                     all_sprites.add(new_bomb)
                     bombs.add(new_bomb)
-                elif event.type==ADDBOBMTWO:
-                    new_bomb_two=Bomb_two()
+                elif event.type == ADDBOBMTWO:
+                    new_bomb_two = Bomb_two()
                     all_sprites.add(new_bomb_two)
                     bomb_twos.add(new_bomb_two)
-                elif event.type==ADDBULLET:
-                    new_bullet=Bullet()
+                elif event.type == ADDBULLET:
+                    new_bullet = Bullet()
                     all_sprites.add(new_bullet)
                     bullets.add(new_bullet)
-                elif event.type==ADDFLAME:
-                    new_flames=Flame()
+                elif event.type == ADDFLAME:
+                    new_flames = Flame()
                     all_sprites.add(new_flames)
                     flames.add(new_flames)
             screen.blit(background, (0, 0))
-            pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,_Life,25))
+            pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,_Life//5,25))
             pygame.draw.rect(screen, (100,200,100,180), Rect(300,570,200,25), 2)
+            if _Life >= 20:
+                pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,200,25))
+                pygame.draw.rect(screen, (100,200,100,180), Rect(300,570,200,25), 2)
+            #Everything moves
             pressed_keys = pygame.key.get_pressed()
             player.update(pressed_keys)
             enemies.update()
@@ -359,9 +367,10 @@ try:
             dragons.update()
             flames.update()
 
-
+            #Is the player die?
             IsDie()
-                
+            
+            #print everything in the screen
             for entity in all_sprites:
                 screen.blit(entity.image, entity.rect)
                 
@@ -370,6 +379,7 @@ try:
             pygame.sprite.groupcollide(dragons,bullets,True,False)
             pygame.display.flip()
 
+#Catch the NameError in IsDie()
 except NameError:
     #game over
     exit_game()
