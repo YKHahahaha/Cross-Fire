@@ -11,9 +11,9 @@ import random
 
 # import pygame.locals for easier access to key coordinates
 from pygame.locals import *
-
+#The game will use sys.exit()
 import sys
-
+#import the time module
 import time
 
 
@@ -24,6 +24,8 @@ class Player(pygame.sprite.Sprite):
         self.image.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.image.get_rect()
 
+    #The move function
+    #move_ip(speed)
     def update(self, pressed_keys):
         if pressed_keys[K_UP]:
             self.rect.move_ip(0, -3)
@@ -50,13 +52,16 @@ class Enemy(pygame.sprite.Sprite):
         super(Enemy, self).__init__()
         self.image = pygame.image.load('missile.png').convert()
         self.image.set_colorkey((255, 255, 255), RLEACCEL)
+        #produce the random numbers
         self.rect = self.image.get_rect(
-            center=(random.randint(820, 900), random.randint(0, 600)))
+            center=(random.randint(820, 900), random.randint(0, 600))) 
         self.speed = random.randint(2,5)
 
+    #The move function
     def update(self):
         self.rect.move_ip(-self.speed, 0)
         if self.rect.right < 0:
+            #kill the Enemy
             self.kill()
 
 
@@ -149,6 +154,7 @@ def exit_game():
 _Life = 10
 Time=0
 endscore=""
+#everything's time
 global enemy_millsecond 
 global cloud_millsecond 
 global gold_millsecond 
@@ -180,10 +186,11 @@ def IsDie():
             all_sprites.remove(flames)
             _Life -= 1
 
+        #compute the score(endscore)
         Time=Time+1
         if Time>0 and Time<2000:
             endscore="E"
-        if Time>2000 and Time<4000:
+        elif Time>2000 and Time<4000:
             endscore="D"
             enemy_millsecond = 1000
             cloud_millsecond = 2000
@@ -193,22 +200,23 @@ def IsDie():
             bubblet_millsecond = 1000
             flame_millsecond =1000
 
-        if Time>4000 and Time<4500:
+        elif Time>4000 and Time<4500:
             endscore="C"
-        if Time>4500 and Time<6000:
+        elif Time>4500 and Time<6000:
             endscore="B"
-        if Time>6000 and Time<10000:
+        elif Time>6000 and Time<10000:
             endscore="A"
-        if Time>10000:
+        elif Time>10000:
             endscore="SSS"
-            enemy_millsecond = 10
+            enemy_millsecond = 100
             cloud_millsecond = 2000
             gold_millsecond = 5000
             bobm_millsecond = 9700
             bomb_two_millsecond = 9700
             bubblet_millsecond = 6000
-            flame_millsecond =10
-        
+            flame_millsecond =100
+
+        #when Life is 0,The player die and exit the game
         if _Life == 0:
             font = pygame.font.Font(None,48)
             text = font.render("GAME OVER!!!You score is:{}".format(endscore), True, (255, 0, 0))
@@ -218,8 +226,10 @@ def IsDie():
             screen.blit(text, text_rect)
             pygame.time.delay(50)
             player.kill()
-            del _Life
+            #delete the _Life
+            del _Life  
 
+    #When we delete the _Life,it will raise a NameError.So catch the NameError 
     except NameError:
         exit_game()
 
@@ -230,11 +240,11 @@ def IsDie():
 pygame.init()
 
 #music:
-pygame.mixer.init()
-pygame.mixer.music.load("bgm2.mp3")
-pygame.mixer.music.set_volume(0.2)
-pygame.mixer.music.play()
-pygame.time.delay(1000)
+#pygame.mixer.init()
+#pygame.mixer.music.load("bgm2.mp3")
+#pygame.mixer.music.set_volume(0.2)
+#pygame.mixer.music.play()
+#pygame.time.delay(1000)
 
 
 # create the screen object
@@ -242,8 +252,10 @@ pygame.time.delay(1000)
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Cross Fire")
 
+#initialize the font
 pygame.font.init()
 
+# set time
 enemy_millsecond = 500
 cloud_millsecond = 1000
 gold_millsecond = 500
@@ -271,8 +283,8 @@ pygame.time.set_timer(ADDFLAME,flame_millsecond)
 # create our 'player', right now he's just a rectangle
 player = Player()
 
-
 background = pygame.Surface(screen.get_size())
+#background.fill(backgroung_color)
 background.fill((135, 206, 250))
 
 
@@ -334,7 +346,7 @@ try:
                     all_sprites.add(new_flames)
                     flames.add(new_flames)
             screen.blit(background, (0, 0))
-            pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,_Life//10,25))
+            pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,_Life,25))
             pygame.draw.rect(screen, (100,200,100,180), Rect(300,570,200,25), 2)
             pressed_keys = pygame.key.get_pressed()
             player.update(pressed_keys)
@@ -359,4 +371,5 @@ try:
             pygame.display.flip()
 
 except NameError:
-    sys.exit()
+    #game over
+    exit_game()
