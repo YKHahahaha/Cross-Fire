@@ -1,7 +1,7 @@
 # Cross-Fire
 "Cross Fire" is a game write in pygame  
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
-### Warm Tip: Playing for a long time may bring discomfort to the eyes because the longer the time is,the faster the enemy plane moves, you can stay away from the screen or take a rest.  
+### Warm Tip: Playing for a long time may bring discomfort to the eyes because the longer the time is the faster the enemy plane moves, you can stay away from the screen or take a rest.  
 ## Game manipulation  
 #### How to play?  
 ```Python
