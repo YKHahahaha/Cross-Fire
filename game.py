@@ -273,7 +273,7 @@ running = False
 # initialize pygame
 pygame.init()
 
-music:
+#music:
 pygame.mixer.init()
 #initialize the music
 pygame.mixer.music.load("bgm2.mp3")
