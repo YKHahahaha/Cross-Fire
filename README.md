@@ -47,8 +47,14 @@ Cross-Fire
  ---dragon.png
  ---flame.png
  ---gold.png
- ---missile.png
+ ---missile.png  
  ---plane.png
+ ---player.png
+ ---Exit_F.png
+ ---Exit_U.png  
+ ---play_F.png
+ ---play_U.png
+ ---background.jpg  
  ---bgm2.mp3
  ---game.py
 ```
