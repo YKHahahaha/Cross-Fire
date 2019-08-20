@@ -1,7 +1,7 @@
 #Author: StephenCurry
 #Author_Email: stepfencurryxiao@gmail
-#Edition: v2.1
-#Last update: 2019.8.16
+#Edition: v2.2
+#Last update: 2019.8.20
 
 #import the pygame!
 import pygame
@@ -21,6 +21,35 @@ class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
         self.image = pygame.image.load('plane.png').convert()
+        self.image.set_colorkey((255, 255, 255), RLEACCEL)
+        self.rect = self.image.get_rect()
+
+    #The move function
+    #move_ip(speed)
+    def update(self, pressed_keys):
+        if pressed_keys[K_UP]:
+            self.rect.move_ip(0, -3)
+        if pressed_keys[K_DOWN]:
+            self.rect.move_ip(0, 3)
+        if pressed_keys[K_LEFT]:
+            self.rect.move_ip(-3, 0)
+        if pressed_keys[K_RIGHT]:
+            self.rect.move_ip(3, 0)
+
+        # Keep player on the screen
+        if self.rect.left < 0:
+            self.rect.left = 0
+        elif self.rect.right > 800:
+            self.rect.right = 800
+        if self.rect.top <= 0:
+            self.rect.top = 0
+        elif self.rect.bottom >= 600:
+            self.rect.bottom = 600
+
+class Player_two(pygame.sprite.Sprite):
+    def __init__(self):
+        super(Player_two, self).__init__()
+        self.image = pygame.image.load('player.png').convert_alpha()
         self.image.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.image.get_rect()
 
@@ -81,9 +110,9 @@ class Cloud(pygame.sprite.Sprite):
 class Gold(pygame.sprite.Sprite):
     def __init__(self):
         super(Gold,self).__init__()
-        self.image = pygame.image.load("gold.png").convert_alpha()
+        self.image=pygame.image.load("gold.png").convert_alpha()
         self.image.set_colorkey((255, 255, 255),RLEACCEL)
-        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
 
     def update(self):
         self.rect.move_ip(-5,0)
@@ -93,9 +122,9 @@ class Gold(pygame.sprite.Sprite):
 class Bomb(pygame.sprite.Sprite):
     def __init__(self):
         super(Bomb,self).__init__()
-        self.image = pygame.image.load('bomb-2.gif').convert_alpha()
+        self.image=pygame.image.load('bomb-2.gif').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-3,0)
         if self.rect.right<0:
@@ -104,9 +133,9 @@ class Bomb(pygame.sprite.Sprite):
 class Bomb_two(pygame.sprite.Sprite):
     def __init__(self):
         super(Bomb_two,self).__init__()
-        self.image = pygame.image.load('bomb-1.gif').convert_alpha()
+        self.image=pygame.image.load('bomb-1.gif').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-3,0)
         if self.rect.right<0:
@@ -115,9 +144,9 @@ class Bomb_two(pygame.sprite.Sprite):
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         super(Bullet,self).__init__()
-        self.image = pygame.image.load('bullet.png').convert_alpha()
+        self.image=pygame.image.load('bullet.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-5,0)
         if self.rect.right<0:
@@ -127,9 +156,9 @@ class Bullet(pygame.sprite.Sprite):
 class Dragon(pygame.sprite.Sprite):
     def __init__(self):
         super(Dragon,self).__init__()
-        self.image = pygame.image.load('dragon.png').convert_alpha()
+        self.image=pygame.image.load('dragon.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect = self.image.get_rect(center=(0,random.randint(0,600)))
+        self.rect=self.image.get_rect(center=(0,random.randint(0,600)))
     def update(self):
         self.rect.move_ip(2,0)
         if self.rect.left>800:
@@ -138,22 +167,21 @@ class Dragon(pygame.sprite.Sprite):
 class Flame(pygame.sprite.Sprite):
     def __init__(self):
         super(Flame,self).__init__()
-        self.image = pygame.image.load('flame.png').convert_alpha()
+        self.image=pygame.image.load('flame.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
-        self.rect = self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
+        self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
         self.rect.move_ip(-5,0)
         if self.rect.right<0:
             self.kill()
-
 
 def exit_game():
     sys.exit()
 
 
 _Life = 10
-Time = 0
-endscore = ""
+Time=0
+endscore=""
 #everything's time
 global enemy_millsecond 
 global cloud_millsecond 
@@ -190,24 +218,24 @@ def IsDie():
         Time=Time+1
         if Time>0 and Time<2000:
             endscore="E"
-        elif Time > 2000 and Time < 4000:
-            endscore = "D"
+        elif Time>2000 and Time<4000:
+            endscore="D"
             enemy_millsecond = 1000
             cloud_millsecond = 2000
             gold_millsecond = 2000
             bobm_millsecond = 5700
             bomb_two_millsecond = 5700
             bubblet_millsecond = 1000
-            flame_millsecond = 1000
+            flame_millsecond =1000
 
-        elif Time > 4000 and Time < 4500:
-            endscore = "C"
-        elif Time > 4500 and Time < 6000:
-            endscore = "B"
-        elif Time  >6000 and Time < 10000:
-            endscore = "A"
-        elif Time > 10000:
-            endscore = "SSS"
+        elif Time>4000 and Time<4500:
+            endscore="C"
+        elif Time>4500 and Time<6000:
+            endscore="B"
+        elif Time>6000 and Time<10000:
+            endscore="A"
+        elif Time>10000:
+            endscore="SSS"
             enemy_millsecond = 100
             cloud_millsecond = 2000
             gold_millsecond = 5000
@@ -233,28 +261,88 @@ def IsDie():
     except NameError:
         exit_game()
 
-        
-        
+#random to choose the plane
+Plane_choice = random.randint(1,2)
+
+global start
+global runing
+
+start = False
+running = False
 
 # initialize pygame
 pygame.init()
 
-#music:
-#initialize the music
+music:
 pygame.mixer.init()
-#This is the bgm
+#initialize the music
 pygame.mixer.music.load("bgm2.mp3")
+#This is the bgm
 pygame.mixer.music.set_volume(0.2)
-#play the music
 pygame.mixer.music.play()
-#timesout
+#play the music
 pygame.time.delay(1000)
-
+#timesout
 
 # create the screen object
 # here we pass it a size of 800x600
 screen = pygame.display.set_mode((800, 600))
 pygame.display.set_caption("Cross Fire")
+clock = pygame.time.Clock()
+
+
+# The start windows
+start_windows = pygame.Surface(screen.get_size())    
+start_windows_2 = pygame.Surface(screen.get_size())  
+start_windows = start_windows.convert()
+start_windows_2 = start_windows_2.convert()
+start_windows.fill((255,255,255))  
+start_windows_2.fill((0,255,0))
+
+# Load the picture
+begin_button_F = pygame.image.load("play_F.png").convert_alpha()
+begin_button_U = pygame.image.load("play_U.png").convert_alpha()
+Exit_button_F = pygame.image.load("Exit_F.png").convert_alpha()
+Exit_button_U = pygame.image.load("Exit_U.png").convert_alpha()
+background = pygame.image.load("background.jpg").convert()
+
+L1 = True
+while L1:
+    clock.tick()
+    buttons = pygame.mouse.get_pressed()
+    x1, y1 = pygame.mouse.get_pos()
+    if x1 >= 227 and x1 <= 555 and y1 >= 241 and y1 <=327:
+        start_windows.blit(begin_button_U, (250, 230))
+        if buttons[0]:
+            L1 = False
+            # The game start.
+            start = True
+            running = True
+
+    elif x1 >= 227 and x1 <= 555 and y1 >= 361 and y1 <=447:
+        start_windows.blit(Exit_button_U, (290, 360))
+        if buttons[0]:
+            pygame.quit()
+            exit()
+
+    else:
+        #draw something
+        start_windows.blit(background,background.get_rect())
+        start_windows.blit(begin_button_F, (250, 230))
+        start_windows.blit(Exit_button_F, (290, 360))
+        
+
+    # draw the backgroud
+    screen.blit(start_windows,(0,0))
+    pygame.display.update()
+
+    for event in pygame.event.get():
+
+        if event.type == pygame.QUIT:
+            #exit the pygame
+            pygame.quit()
+            #exit the game
+            exit()
 
 #initialize the font
 pygame.font.init()
@@ -285,7 +373,10 @@ ADDFLAME = pygame.USEREVENT+7
 pygame.time.set_timer(ADDFLAME,flame_millsecond)
 
 # create our 'player', right now he's just a rectangle
-player = Player()
+if Plane_choice == 1:
+    player = Player()
+if Plane_choice == 2:
+    player = Player_two()
 
 background = pygame.Surface(screen.get_size())
 #background.fill(backgroung_color)
@@ -303,12 +394,9 @@ flames = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
-
-running = True
-start = True
 try:
     while running:
-        if start == True:
+        if start==True:
             for event in pygame.event.get():
                 if event.type == KEYDOWN:
                     if event.key == K_b:
@@ -321,6 +409,7 @@ try:
                     if event.type == pygame.QUIT:
                         running = False
                         sys.exit()
+                        pygame.quit()
                 elif event.type == ADDENEMY:
                     new_enemy = Enemy()
                     enemies.add(new_enemy)
@@ -350,12 +439,13 @@ try:
                     all_sprites.add(new_flames)
                     flames.add(new_flames)
             screen.blit(background, (0, 0))
-            pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,_Life//5,25))
+            pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,_Life,25))
             pygame.draw.rect(screen, (100,200,100,180), Rect(300,570,200,25), 2)
-            if _Life >= 20:
+            if _Life >= 30:
+                _Life = 30
                 pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,570,200,25))
                 pygame.draw.rect(screen, (100,200,100,180), Rect(300,570,200,25), 2)
-            #Everything moves
+            # Enter the number
             pressed_keys = pygame.key.get_pressed()
             player.update(pressed_keys)
             enemies.update()
@@ -369,17 +459,18 @@ try:
 
             #Is the player die?
             IsDie()
-            
+
             #print everything in the screen
             for entity in all_sprites:
                 screen.blit(entity.image, entity.rect)
-                
+
+            # The dragons sprite
             pygame.sprite.groupcollide(dragons,enemies,False,True)
             pygame.sprite.groupcollide(dragons,flames,False,True)
             pygame.sprite.groupcollide(dragons,bullets,True,False)
             pygame.display.flip()
 
-#Catch the NameError in IsDie()
+#Catch the NameError in isDie()
 except NameError:
     #game over
     exit_game()
