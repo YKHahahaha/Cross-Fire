@@ -1,20 +1,7 @@
 # Cross-Fire
-"Cross Fire" is a game write in pygame  
+"Cross Fire" is a AI game write in pygame and sklearn
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
-### Warm Tip: Playing for a long time may bring discomfort to the eyes because the longer the time is the faster the enemy plane moves, you can stay away from the screen or take a rest.  
-## Game manipulation  
-#### How to play?  
-```Python
-the plane:  
-●↑：turn up  
-●↓: turn down  
-●←: turn right  
-●→: turn left  
-the dragon:  
-Press the keyboard B  
-If a dragon hits a bullet，Dragon will die.If dragons encounter enemies，The enemy will die. 
-Press the keyboard Esc can exit the game
-```
+
 ## download picture
 ```java
 javac Download.java  
@@ -31,10 +18,13 @@ git@github.com:stepfencurryxiao/Cross-Fire.git
 ## install import  
 ```Python
 pip install pygame
+pip install sklearn
+pip install numpy
+pip install pandas
 ```
 ```
 python 3.x
-pygame 1.9.4
+pygame 1.9.6
 ```
 [what is pygame?](https://www.pygame.org)  
 ##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error
@@ -56,13 +46,15 @@ Cross-Fire
  ---play_U.png
  ---background.jpg  
  ---bgm2.mp3
- ---game.py
+ ---data01.csv
+ ---data02.csv
+ ---ALGame.py
 ```
 ## How to run
 ```python
-python "game.py"  
+python "AIGame.py"  
 ```
-or you can open the [game.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/game.bat) or [game.sh](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/game.sh)
+or you can open the [game.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/ALGame.bat) or [AIGame.sh](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/AIGame.sh)
 ## Example  
 step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
