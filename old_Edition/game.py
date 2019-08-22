@@ -206,9 +206,11 @@ def IsDie():
             _Life += 1
         elif pygame.sprite.spritecollideany(player,bombs):
             all_sprites.remove(bombs)
+            Sound_bomb.play(1)
             _Life += 1
         elif pygame.sprite.spritecollideany(player,bomb_twos):
             all_sprites.remove(bomb_twos)
+            Sound_bomb.play(1)
             _Life += 1
         elif pygame.sprite.spritecollideany(player,flames):
             all_sprites.remove(flames)
@@ -246,6 +248,9 @@ def IsDie():
 
         #when Life is 0,The player die and exit the game
         if _Life == 0:
+            Sound_boom.stop()
+            pygame.mixer.music.stop()
+            Sound_die.play(1)
             font = pygame.font.Font(None,48)
             text = font.render("GAME OVER!!!You score is:{}".format(endscore), True, (255, 0, 0))
             text_rect = text.get_rect()
@@ -276,10 +281,10 @@ pygame.init()
 #music:
 pygame.mixer.init()
 #initialize the music
-pygame.mixer.music.load("bgm2.mp3")
+pygame.mixer.music.load("bgm.mp3")
 #This is the bgm
-pygame.mixer.music.set_volume(0.2)
-pygame.mixer.music.play()
+#pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(-1)
 #play the music
 pygame.time.delay(1000)
 #timesout
@@ -315,6 +320,7 @@ while L1:
         start_windows.blit(begin_button_U, (250, 230))
         if buttons[0]:
             L1 = False
+            pygame.mixer.music.stop()
             # The game start.
             start = True
             running = True
@@ -394,7 +400,20 @@ flames = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 
+Sound_boom = pygame.mixer.Sound("boom.wav")
+Sound_boom.set_volume(0.2)
+Sound_boom.play(-1)
+
+Sound_bomb = pygame.mixer.Sound("bomb.wav")
+Sound_bomb.set_volume(0.5)
+
+Sound_die = pygame.mixer.Sound("die.wav")
+Sound_die.set_volume(0.5)
+
+
 try:
+    pygame.mixer.music.load("bgm02.mp3")
+    pygame.mixer.music.play(-1)
     while running:
         if start==True:
             for event in pygame.event.get():
