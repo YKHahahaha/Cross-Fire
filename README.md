@@ -14,6 +14,7 @@ If you fail to download using java code,you can
 ```git
 git@github.com:stepfencurryxiao/Cross-Fire.git
 ```
+# AI Game
 
 ## install import  
 ```Python
@@ -29,7 +30,7 @@ pygame 1.9.6
 [what is pygame?](https://www.pygame.org)  
 ##### Note that the code should be saved in the same path as the picture and music, or pygame will report an error
 ```
-Cross-Fire
+Cross-Fire-AI
  ---bomb-1.gif
  ---bomb-2.gif
  ---bullet.png
@@ -50,12 +51,37 @@ Cross-Fire
  ---data02.csv
  ---ALGame.py
 ```
-# old_Edition
+
 ## How to run
 ```python
 python "AIGame.py"  
 ```
-or you can open the [game.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/ALGame.bat) or [AIGame.sh](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/AIGame.sh)
+or you can open the [AIGame.bat](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/AIGame.bat) or [AIGame.sh](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/AIGame.sh)
+# old_Edition
+```
+Cross-Fire
+ ---bomb-1.gif
+ ---bomb-2.gif
+ ---bullet.png
+ ---cloud.png
+ ---dragon.png
+ ---flame.png
+ ---gold.png
+ ---missile.png  
+ ---plane.png
+ ---player.png
+ ---Exit_F.png
+ ---Exit_U.png  
+ ---play_F.png
+ ---play_U.png
+ ---background.jpg  
+ ---bgm2.mp3
+ ---game.py
+```
+## How to run
+```python
+python "game.py"  
+```
 ## Example  
 step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
