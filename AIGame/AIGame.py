@@ -519,7 +519,7 @@ try:
     
             distance = compute_distance(player,new_flames)
             distance_player_two = compute_distance(player,new_enemy)
-            print(distance_player_two)
+            #print(distance_player_two)
             
             # Enter the number
             # pressed_keys = pygame.key.get_pressed()
@@ -555,4 +555,3 @@ try:
 except NameError:
     #game over
     exit_game()
-
