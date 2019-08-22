@@ -1,6 +1,6 @@
 #Author: StephenCurry
 #Author_Email: stepfencurryxiao@gmail
-#Edition: v1.0
+#Edition: v2.2
 #Last update: 2019.8.20
 
 from functools import reduce
@@ -190,10 +190,8 @@ def exit_game():
     sys.exit()
 
 def model(file_name,distance):
-    
     sys.__stdout__ = sys.stdout
     clf = tree.DecisionTreeClassifier()
-    #Read the data
     data = pd.read_csv(file_name)
     X = data[['distance']]
     Y = data[['key']]
@@ -267,9 +265,13 @@ def IsDie():
         elif pygame.sprite.spritecollideany(player_two,bombs):
             all_sprites.remove(bombs)
             _Life_player_two += 1
+            Sound_bomb.play(1)
+            
         elif pygame.sprite.spritecollideany(player_two,bomb_twos):
             all_sprites.remove(bomb_twos)
             _Life_player_two += 1
+            Sound_bomb.play(1)
+            
         elif pygame.sprite.spritecollideany(player_two,flames):
             all_sprites.remove(flames)
             _Life_player_two -= 1
@@ -292,6 +294,9 @@ def IsDie():
     
         #when Life is 0,The player die and exit the game
         if _Life == 0:
+            Sound_boom.stop()
+            pygame.mixer.music.stop()
+            Sound_die.play(1)
             font = pygame.font.Font(None,48)
             text = font.render("The AI player 2 win!!!score:{}".format(endscore), True, (255, 0, 0))
             text_rect = text.get_rect()
@@ -304,6 +309,9 @@ def IsDie():
             del _Life
 
         if _Life_player_two == 0:
+            Sound_boom.stop()
+            pygame.mixer.music.stop()
+            Sound_die.play(1)
             font = pygame.font.Font(None,48)
             text = font.render("The AI player 1 win!!!score:{}".format(endscore), True, (255, 0, 0))
             text_rect = text.get_rect()
@@ -335,10 +343,10 @@ pygame.init()
 #music:
 pygame.mixer.init()
 #initialize the music
-pygame.mixer.music.load("bgm2.mp3")
+pygame.mixer.music.load("AI_bgm.mp3")
 #This is the bgm
-pygame.mixer.music.set_volume(0.2)
-pygame.mixer.music.play()
+#pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(-1)
 #play the music
 pygame.time.delay(1000)
 #timesout
@@ -374,6 +382,7 @@ while L1:
         start_windows.blit(begin_button_U, (250, 230))
         if buttons[0]:
             L1 = False
+            pygame.mixer.music.stop()
             # The game start.
             start = True
             running = True
@@ -457,7 +466,19 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(player_two)
 
+Sound_boom = pygame.mixer.Sound("boom.wav")
+Sound_boom.set_volume(0.2)
+Sound_boom.play(-1)
+
+Sound_bomb = pygame.mixer.Sound("bomb.wav")
+Sound_bomb.set_volume(0.5)
+
+Sound_die = pygame.mixer.Sound("die.wav")
+Sound_die.set_volume(0.5)
+
 try:
+    pygame.mixer.music.load("AI_bgm02.mp3")
+    pygame.mixer.music.play(-1)
     while running:
         if start==True:
             for event in pygame.event.get():
@@ -555,3 +576,5 @@ try:
 except NameError:
     #game over
     exit_game()
+
+
