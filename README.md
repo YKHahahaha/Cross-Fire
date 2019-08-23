@@ -37,6 +37,11 @@ Press the keyboard Esc,exit the game.
 ## download
 [Cross-Fire.zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire.zip)
 
+## How to run
+```python
+python "game.py"
+```
+
 ## About anuthor
 ☞FaceBook:https://www.facebook.com/xiao.stepfencurry.3  
 ☞Email:stepfencurryxiao@gmail.com  
