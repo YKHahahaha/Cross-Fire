@@ -20,7 +20,7 @@ pygame 1.9.6
 [Cross-Fire-AI.zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire-AI.zip)  
 ## How to run
 ```python
-python "game.py"  
+python "AIGame.py"  
 ```
 code:[here](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/old_Edition/game.py)
 ## Example  
