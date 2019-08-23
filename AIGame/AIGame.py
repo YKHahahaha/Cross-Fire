@@ -1,7 +1,9 @@
-#Author: StephenCurry
-#Author_Email: stepfencurryxiao@gmail
-#Edition: v2.2
-#Last update: 2019.8.20
+#Author_name: StephenCurry
+#Author_Email: stepfencurryxiao@gmail.com
+#FaceBook: https://www.facebook.com/xiao.stepfencurry.3
+#Github: https://github.com/stepfencurryxiao/Cross-Fire/blob/master/AIGame/AIGame.py
+#Edition: v2.3
+#Last update: 2019.8.23
 
 from functools import reduce
 #import the pygame!
@@ -16,9 +18,12 @@ from pygame.locals import *
 import sys
 #import the time module
 import time
+#use math module to compute distance
 import math
 
+#use pandas to read data
 import pandas as pd
+#The machine learning module
 from sklearn import tree
 import numpy as np
 
@@ -99,6 +104,7 @@ class Enemy(pygame.sprite.Sprite):
             #kill the Enemy
             self.kill()
 
+    #get the rect
     def get_rect(self):
         return self.rect
 
@@ -183,6 +189,8 @@ class Flame(pygame.sprite.Sprite):
         self.rect.move_ip(-50,0)
         if self.rect.right<0:
             self.kill()
+
+    #get the rect
     def get_rect(self):
         return self.rect
 
@@ -191,14 +199,16 @@ def exit_game():
 
 def model(file_name,distance):
     sys.__stdout__ = sys.stdout
+    # use decisiontreeclassifier to predict
     clf = tree.DecisionTreeClassifier()
+    #read the data
     data = pd.read_csv(file_name)
     X = data[['distance']]
     Y = data[['key']]
 
-    #train
+    #train the module
     clf = clf.fit(X,Y)
-
+    # predict 
     press_key = clf.predict(np.array(distance).reshape(1,-1))
 
     if press_key == ['down']:
@@ -213,6 +223,7 @@ def model(file_name,distance):
 
 global distance
 def compute_distance(Player,other):
+	#compute the distance
     return math.sqrt(math.pow(Player.rect.center[0] - other.get_rect().center[0],2)+
                      math.pow(Player.rect.center[1] - other.get_rect().center[1],2))
     
@@ -240,7 +251,7 @@ def IsDie():
     try:
         if pygame.sprite.spritecollideany(player, enemies):
             all_sprites.remove(enemies)
-            _Life -= 1
+            _Life += 1
                 
         elif pygame.sprite.spritecollideany(player, golds):
             all_sprites.remove(golds)
@@ -274,7 +285,7 @@ def IsDie():
             
         elif pygame.sprite.spritecollideany(player_two,flames):
             all_sprites.remove(flames)
-            _Life_player_two -= 1
+            _Life_player_two += 1
 
         #compute the score(endscore)
         Time=Time+1
@@ -295,7 +306,7 @@ def IsDie():
         #when Life is 0,The player die and exit the game
         if _Life == 0:
             Sound_boom.stop()
-            pygame.mixer.music.stop()
+            #pygame.mixer.music.stop()
             Sound_die.play(1)
             font = pygame.font.Font(None,48)
             text = font.render("The AI player 2 win!!!score:{}".format(endscore), True, (255, 0, 0))
@@ -310,7 +321,7 @@ def IsDie():
 
         if _Life_player_two == 0:
             Sound_boom.stop()
-            pygame.mixer.music.stop()
+            #pygame.mixer.music.stop()
             Sound_die.play(1)
             font = pygame.font.Font(None,48)
             text = font.render("The AI player 1 win!!!score:{}".format(endscore), True, (255, 0, 0))
@@ -382,6 +393,7 @@ while L1:
         start_windows.blit(begin_button_U, (250, 230))
         if buttons[0]:
             L1 = False
+            #stop playing music
             pygame.mixer.music.stop()
             # The game start.
             start = True
@@ -390,6 +402,7 @@ while L1:
     elif x1 >= 227 and x1 <= 555 and y1 >= 361 and y1 <=447:
         start_windows.blit(Exit_button_U, (290, 360))
         if buttons[0]:
+        	#The game exit
             pygame.quit()
             exit()
 
@@ -405,13 +418,14 @@ while L1:
     pygame.display.update()
 
     for event in pygame.event.get():
-
+    	#Get all the event
         if event.type == pygame.QUIT:
             #exit the pygame
             pygame.quit()
             #exit the game
             exit()
-            
+
+# new Flame and Enemy object     
 global new_flames
 new_flames = Flame()
 global new_enemy
@@ -421,13 +435,13 @@ new_enemy = Enemy()
 pygame.font.init()
 
 # set time
-enemy_millsecond = 500
+enemy_millsecond = 1000
 cloud_millsecond = 1000
 gold_millsecond = 500
 bobm_millsecond = 1500
 bomb_two_millsecond = 1500
 bubblet_millsecond = 250
-flame_millsecond = 500
+flame_millsecond = 1000
 
 # Create a custom event for adding a new enemy.
 ADDENEMY = pygame.USEREVENT + 1
@@ -445,7 +459,7 @@ pygame.time.set_timer(ADDBULLET,bomb_two_millsecond)
 ADDFLAME = pygame.USEREVENT+7
 pygame.time.set_timer(ADDFLAME,flame_millsecond)
 
-# create our 'player', right now he's just a rectangle
+# create our 'player' and 'player_two', right now he's just a rectangle
 player = Player()
 player_two = Player_two()
 
@@ -453,7 +467,7 @@ background = pygame.Surface(screen.get_size())
 #background.fill(backgroung_color)
 background.fill((135, 206, 250))
 
-
+# The sprite
 enemies = pygame.sprite.Group()
 clouds = pygame.sprite.Group()
 golds = pygame.sprite.Group()
@@ -466,18 +480,23 @@ all_sprites = pygame.sprite.Group()
 all_sprites.add(player)
 all_sprites.add(player_two)
 
+#play the boom.wav
 Sound_boom = pygame.mixer.Sound("boom.wav")
 Sound_boom.set_volume(0.2)
 Sound_boom.play(-1)
 
+#play the bomb.wav
 Sound_bomb = pygame.mixer.Sound("bomb.wav")
 Sound_bomb.set_volume(0.5)
 
+#play the die.wav
 Sound_die = pygame.mixer.Sound("die.wav")
 Sound_die.set_volume(0.5)
 
 try:
+	# Try to play the bgm02.mp3
     pygame.mixer.music.load("AI_bgm02.mp3")
+    #use -1 to loop play
     pygame.mixer.music.play(-1)
     while running:
         if start==True:
@@ -523,7 +542,8 @@ try:
                     new_flames = Flame()
                     all_sprites.add(new_flames)
                     flames.add(new_flames)
-                    
+            
+            #draw the background
             screen.blit(background, (0, 0))
             pygame.draw.rect(screen, (255, 0, 0, 180), Rect(300,500,_Life,25))
             pygame.draw.rect(screen, (100,200,100,180), Rect(300,500,200,25), 2)
@@ -545,9 +565,11 @@ try:
             # Enter the number
             # pressed_keys = pygame.key.get_pressed()
             key = model("data01.csv",distance)
+            #predict the 'key'
             key_player_two = model("data02.csv",distance_player_two)
             player.update(key)
             player_two.update(key_player_two)
+            #everthing updates
             enemies.update()
             clouds.update()
             golds.update()
@@ -576,5 +598,4 @@ try:
 except NameError:
     #game over
     exit_game()
-
-
+    #sys.exit()
