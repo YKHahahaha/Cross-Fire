@@ -22,7 +22,8 @@ pygame 1.9.6
 ```python
 python "AIGame.py"  
 ```
-code:[here](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/old_Edition/game.py)
+code:[here](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/old_Edition/game.py)  
+# Old Edition  
 ## Example  
 step1:code is saved in the same path as the picture and music.  
 step2:Run the code  
