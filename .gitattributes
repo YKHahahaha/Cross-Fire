@@ -1,0 +1,4 @@
+*.md linguist-language=C++
+*.png linguist-language=C++
+*.jpg linguist-language=C++
+*.mp3 linguist-language=C++
