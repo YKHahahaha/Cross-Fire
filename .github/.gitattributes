@@ -1,1 +1,5 @@
 *.py linguist-language = cpp
+*.md linguist-language = cpp
+*.png linguist-language = cpp
+*.jpg linguist-language = cpp
+*.mp3 linguist-languge = cpp
