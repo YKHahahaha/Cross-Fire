@@ -12,7 +12,7 @@ pip install numpy
 pip install pandas
 ```
 ```
-python 3.x
+🐍python 3.x
 pygame 1.9.6
 ```
 [what is pygame?](https://www.pygame.org)  
