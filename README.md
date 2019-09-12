@@ -53,7 +53,8 @@ Welcome to leave a message!!!
 ●Star  
 ●Fork
 
-
+## License
+[Apache License](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/LICENSE)
 
 
 
