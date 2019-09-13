@@ -10,7 +10,7 @@ First,you should download the python and some packages about machine learning an
 🐍python 3.x
 pygame 1.9.x
 ```
-You can it [here](https://www.python.org/download/release/python-374/)  
+You can download python [here](https://www.python.org/download/release/python-374/)  
 ```Python
 pip install pygame
 pip install sklearn
