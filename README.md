@@ -3,21 +3,24 @@
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
 
 # AI Game
-
-## install import  
+This is the AI game that use the machine learning algorithm and write in python program language.    
+## install modules and python
+First,you should download the python and some packages about machine learning and game development.  
+```
+🐍python 3.x
+pygame 1.9.x
+```
+You can it [here](https://www.python.org/download/release/python-374/)  
 ```Python
 pip install pygame
 pip install sklearn
 pip install numpy
 pip install pandas
 ```
-```
-🐍python 3.x
-pygame 1.9.6
-```
+
 [what is pygame?](https://www.pygame.org)  
 ## Download
-[Cross-Fire-AI.zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire-AI.zip)  
+Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire-AI.zip) file on github and unzip it in your computer.  
 ## How to run
 ```python
 python "AIGame.py"  
