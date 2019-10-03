@@ -1,5 +1,5 @@
 # Cross-Fire
-"Cross Fire" is a AI game write in pygame and sklearn
+"Cross Fire" is a AI game writen in pygame and sklearn
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
 
 # AI Game
