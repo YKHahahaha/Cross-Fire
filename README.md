@@ -1,8 +1,9 @@
 # Cross-Fire
-"Cross Fire" is a AI game writen in pygame and sklearn
+"Cross Fire" is a game writen in pygame and sklearn
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/pygame.jpg)
 
-# AI Game
+It includes two edition:The AI edition and old edition.  
+# AI Edition
 This is the AI game that use the machine learning algorithm and write in python program language.    
 ## install modules and python
 First,you should download the python and some packages about machine learning and game development.    
@@ -23,11 +24,11 @@ pip install pandas
 ```
 ## Download
 Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire-AI.zip) file on github and unzip it in your computer.  
-## How to run
+## How to run?
 ```python
-python "AIGame.py"  
+$python "AIGame.py"  
 ```
-code:[here](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/old_Edition/game.py)  
+
 # Old Edition  
 ### How to play
 The player:  
@@ -61,13 +62,13 @@ Press the keyboard Esc,exit the game.
 ## download
 Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire.zip) file and unzip in your computer.
 
-## How to run
+## How to run?
 ```python
-python "game.py"
+$python "game.py"
 ```
 
 ## About anuthor
-☞FaceBook:https://www.facebook.com/xiao.stepfencurry.3  
+☞Facebook:https://www.facebook.com/xiao.stepfencurry.3  
 ☞Email:stepfencurryxiao@gmail.com  
 ☞github:https://github.com/stepfencurryxiao
 Welcome to leave a message!!!
@@ -77,7 +78,7 @@ Welcome to leave a message!!!
 ●Fork
 
 ## License
-[Apache License](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/LICENSE)
+see the [Apache License](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/LICENSE).
 
 
 
