@@ -25,7 +25,7 @@ pip install pandas
 ## Download
 Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire-AI.zip) file on github and unzip it in your computer.  
 ## How to run?
-```python
+```
 $python "AIGame.py"  
 ```
 
@@ -60,22 +60,23 @@ Press the keyboard Esc,exit the game.
 ![image](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/.github/run03.png)
 
 ## download
-Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire.zip) file and unzip in your computer.
+Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cross-Fire.zip) file on github and unzip it in your computer.
 
 ## How to run?
-```python
+```
 $python "game.py"
 ```
 
-## About anuthor
-☞Facebook:https://www.facebook.com/xiao.stepfencurry.3  
-☞Email:stepfencurryxiao@gmail.com  
-☞github:https://github.com/stepfencurryxiao
+## About anuthor😎
+🖥Facebook:https://www.facebook.com/xiao.stepfencurry.3  
+📧Email:stepfencurryxiao@gmail.com  
+🖥github:https://github.com/stepfencurryxiao  
 Welcome to leave a message!!!
   
 ## If you like this 
 ●Star  
 ●Fork
+●Contribute
 
 ## License
 see the [Apache License](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/LICENSE).
