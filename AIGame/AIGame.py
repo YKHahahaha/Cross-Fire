@@ -31,7 +31,7 @@ import numpy as np
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super(Player, self).__init__()
-        self.image = pygame.image.load('plane.png').convert()
+        self.image = pygame.image.load('image/plane.png').convert()
         self.image.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.image.get_rect()
 
@@ -60,7 +60,7 @@ class Player(pygame.sprite.Sprite):
 class Player_two(pygame.sprite.Sprite):
     def __init__(self):
         super(Player_two, self).__init__()
-        self.image = pygame.image.load('player.png').convert_alpha()
+        self.image = pygame.image.load('image/player.png').convert_alpha()
         self.image.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.image.get_rect()
 
@@ -90,7 +90,7 @@ class Player_two(pygame.sprite.Sprite):
 class Enemy(pygame.sprite.Sprite):
     def __init__(self):
         super(Enemy, self).__init__()
-        self.image = pygame.image.load('missile.png').convert()
+        self.image = pygame.image.load('image/missile.png').convert()
         self.image.set_colorkey((255, 255, 255), RLEACCEL)
         #produce the random numbers
         self.rect = self.image.get_rect(
@@ -112,7 +112,7 @@ class Enemy(pygame.sprite.Sprite):
 class Cloud(pygame.sprite.Sprite):
     def __init__(self):
         super(Cloud, self).__init__()
-        self.image = pygame.image.load('cloud.png').convert()
+        self.image = pygame.image.load('image/cloud.png').convert()
         self.image.set_colorkey((0, 0, 0), RLEACCEL)
         self.rect = self.image.get_rect(center=(
             random.randint(820, 900), random.randint(0, 600)))
@@ -125,7 +125,7 @@ class Cloud(pygame.sprite.Sprite):
 class Gold(pygame.sprite.Sprite):
     def __init__(self):
         super(Gold,self).__init__()
-        self.image=pygame.image.load("gold.png").convert_alpha()
+        self.image=pygame.image.load("image/gold.png").convert_alpha()
         self.image.set_colorkey((255, 255, 255),RLEACCEL)
         self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
 
@@ -137,7 +137,7 @@ class Gold(pygame.sprite.Sprite):
 class Bomb(pygame.sprite.Sprite):
     def __init__(self):
         super(Bomb,self).__init__()
-        self.image=pygame.image.load('bomb-2.gif').convert_alpha()
+        self.image=pygame.image.load('image/bomb-2.gif').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
         self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
@@ -148,7 +148,7 @@ class Bomb(pygame.sprite.Sprite):
 class Bomb_two(pygame.sprite.Sprite):
     def __init__(self):
         super(Bomb_two,self).__init__()
-        self.image=pygame.image.load('bomb-1.gif').convert_alpha()
+        self.image=pygame.image.load('image/bomb-1.gif').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
         self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
@@ -159,7 +159,7 @@ class Bomb_two(pygame.sprite.Sprite):
 class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         super(Bullet,self).__init__()
-        self.image=pygame.image.load('bullet.png').convert_alpha()
+        self.image=pygame.image.load('image/bullet.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
         self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
@@ -171,7 +171,7 @@ class Bullet(pygame.sprite.Sprite):
 class Dragon(pygame.sprite.Sprite):
     def __init__(self):
         super(Dragon,self).__init__()
-        self.image=pygame.image.load('dragon.png').convert_alpha()
+        self.image=pygame.image.load('image/dragon.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
         self.rect=self.image.get_rect(center=(0,random.randint(0,600)))
     def update(self):
@@ -182,7 +182,7 @@ class Dragon(pygame.sprite.Sprite):
 class Flame(pygame.sprite.Sprite):
     def __init__(self):
         super(Flame,self).__init__()
-        self.image=pygame.image.load('flame.png').convert_alpha()
+        self.image=pygame.image.load('image/flame.png').convert_alpha()
         self.image.set_colorkey((255,255,255),RLEACCEL)
         self.rect=self.image.get_rect(center=(random.randint(820,900),random.randint(0,600)))
     def update(self):
@@ -354,7 +354,7 @@ pygame.init()
 #music:
 pygame.mixer.init()
 #initialize the music
-pygame.mixer.music.load("AI_bgm.mp3")
+pygame.mixer.music.load("music/AI_bgm.mp3")
 #This is the bgm
 #pygame.mixer.music.set_volume(0.2)
 pygame.mixer.music.play(-1)
@@ -378,11 +378,11 @@ start_windows.fill((255,255,255))
 start_windows_2.fill((0,255,0))
 
 # Load the picture
-begin_button_F = pygame.image.load("play_F.png").convert_alpha()
-begin_button_U = pygame.image.load("play_U.png").convert_alpha()
-Exit_button_F = pygame.image.load("Exit_F.png").convert_alpha()
-Exit_button_U = pygame.image.load("Exit_U.png").convert_alpha()
-background = pygame.image.load("background.jpg").convert()
+begin_button_F = pygame.image.load("image/play_F.png").convert_alpha()
+begin_button_U = pygame.image.load("image/play_U.png").convert_alpha()
+Exit_button_F = pygame.image.load("image/Exit_F.png").convert_alpha()
+Exit_button_U = pygame.image.load("image/Exit_U.png").convert_alpha()
+background = pygame.image.load("image/background.jpg").convert()
 
 L1 = True
 while L1:
@@ -481,21 +481,21 @@ all_sprites.add(player)
 all_sprites.add(player_two)
 
 #play the boom.wav
-Sound_boom = pygame.mixer.Sound("boom.wav")
+Sound_boom = pygame.mixer.Sound("music/boom.wav")
 Sound_boom.set_volume(0.2)
 Sound_boom.play(-1)
 
 #play the bomb.wav
-Sound_bomb = pygame.mixer.Sound("bomb.wav")
+Sound_bomb = pygame.mixer.Sound("music/bomb.wav")
 Sound_bomb.set_volume(0.5)
 
 #play the die.wav
-Sound_die = pygame.mixer.Sound("die.wav")
+Sound_die = pygame.mixer.Sound("music/die.wav")
 Sound_die.set_volume(0.5)
 
 try:
 	# Try to play the bgm02.mp3
-    pygame.mixer.music.load("AI_bgm02.mp3")
+    pygame.mixer.music.load("music/AI_bgm02.mp3")
     #use -1 to loop play
     pygame.mixer.music.play(-1)
     while running:
@@ -564,9 +564,9 @@ try:
             
             # Enter the number
             # pressed_keys = pygame.key.get_pressed()
-            key = model("data01.csv",distance)
+            key = model("data/data01.csv",distance)
             #predict the 'key'
-            key_player_two = model("data02.csv",distance_player_two)
+            key_player_two = model("data/data02.csv",distance_player_two)
             player.update(key)
             player_two.update(key_player_two)
             #everthing updates
