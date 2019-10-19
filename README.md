@@ -67,7 +67,7 @@ Download the [zip](https://github.com/stepfencurryxiao/Cross-Fire/blob/master/Cr
 $python "game.py"
 ```
 
-## About anuthor😎
+## About author😎
 🖥Facebook:https://www.facebook.com/xiao.stepfencurry.3  
 📧Email:stepfencurryxiao@gmail.com  
 🖥github:https://github.com/stepfencurryxiao  
